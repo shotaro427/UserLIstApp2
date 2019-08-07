@@ -19,6 +19,17 @@ class ViewController: UIViewController {
     // sliderの値を表示させるラベル
     @IBOutlet weak var printSliderValue: UILabel!
     
+    // 生年月日の年
+    var year: Int = 0
+    // 生年月日の月
+    var month: Int = 0
+    // 生年月日の日
+    var day: Int = 0
+    // 血液型
+    var bloodIndex: Int = 0
+    // 好きな数字
+    var favNum: Int = 0
+    
     // 生年月日の「年」の情報から表示する占い結果
     let resultYear: [String] = [ // 年を4で割った時のあまりで判定
         "春の",
@@ -67,5 +78,30 @@ class ViewController: UIViewController {
         printSliderValue.text = String(Int(ceil(sender.value))) // 1~100で表示させる
     }
     
+    // 「占う」ボタン
+    @IBAction func startFortune(_ sender: UIButton) {
+        
+        
+        // 以下パラメータの取得
+        // datePickerからdate型の値を取得
+        let date = datePicker.date
+        // 年/月/日それぞれを取得
+        year = datePicker.calendar.component(.year, from: date)
+        month = datePicker.calendar.component(.month, from: date)
+        day = datePicker.calendar.component(.day, from: date)
+        
+        // 血液型を取得(0: A型, 1: B型, 2: O型, 3: AB型)
+        bloodIndex = bloodType.selectedSegmentIndex
+        
+        // スライドバーの値を取得
+        favNum = Int(ceil(favoriteNum.value))
+        
+        
+        // 以下パラメータの加工
+        year /= 4 // 4種類
+        month /= 3 // 3種類
+        day /= 4 // 4種類
+        favNum /= 4 // 4種類
+    }
 }
 
