@@ -83,6 +83,9 @@ class ViewController: UIViewController {
     // 「占う」ボタン
     @IBAction func startFortune(_ sender: UIButton) {
         
+        // 占い結果を初期化する
+        resultView.text = ""
+        
         
         // 以下パラメータの取得
         // datePickerからdate型の値を取得
@@ -100,10 +103,10 @@ class ViewController: UIViewController {
         
         
         // 以下パラメータの加工
-        year /= 4 // 4種類
-        month /= 3 // 3種類
-        day /= 4 // 4種類
-        favNum /= 4 // 4種類
+        year %= 4 // 4種類
+        month %= 3 // 3種類
+        day %= 4 // 4種類
+        favNum %= 4 // 4種類
         
         // 「年」パラメータから占い結果を決定
         switch year {
