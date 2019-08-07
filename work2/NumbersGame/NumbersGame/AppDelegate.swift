@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NumbersGame
 //
-//  Created by 田内　翔太郎 on 2019/08/05.
+//  Created by 田内　翔太郎 on 2019/08/07.
 //  Copyright © 2019 田内　翔太郎. All rights reserved.
 //
 

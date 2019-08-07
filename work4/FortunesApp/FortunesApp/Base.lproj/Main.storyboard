@@ -76,8 +76,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pwW-vd-d1L">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="pwW-vd-d1L">
                                 <rect key="frame" x="1" y="406" width="412" height="31"/>
+                                <connections>
+                                    <action selector="moveSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="RVF-5X-IHi"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRi-lM-cuc">
                                 <rect key="frame" x="0.0" y="456" width="414" height="0.0"/>
@@ -138,6 +141,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bloodType" destination="Ql9-tJ-Zsq" id="Xjd-rf-WzQ"/>
+                        <outlet property="datePicker" destination="ghV-tX-IxU" id="HqW-98-d5b"/>
+                        <outlet property="favoriteNum" destination="pwW-vd-d1L" id="Sca-l7-TgI"/>
+                        <outlet property="printSliderValue" destination="lRi-lM-cuc" id="jGx-It-WO6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
