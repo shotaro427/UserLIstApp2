@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var favoriteNum: UISlider!
     // sliderの値を表示させるラベル
     @IBOutlet weak var printSliderValue: UILabel!
+    // 占い結果を表示するtextView
+    @IBOutlet weak var resultView: UITextView!
     
     // 生年月日の年
     var year: Int = 0
@@ -102,6 +104,74 @@ class ViewController: UIViewController {
         month /= 3 // 3種類
         day /= 4 // 4種類
         favNum /= 4 // 4種類
+        
+        // 「年」パラメータから占い結果を決定
+        switch year {
+        case 0:
+            resultView.text += resultYear[year]
+        case 1:
+            resultView.text += resultYear[year]
+        case 2:
+            resultView.text += resultYear[year]
+        case 3:
+            resultView.text += resultYear[year]
+        default:
+            break
+        }
+        
+        // 「月」パラメータから占い結果を決定
+        switch month {
+        case 0:
+            resultView.text += resultMonth[month]
+        case 1:
+            resultView.text += resultMonth[month]
+        case 2:
+            resultView.text += resultMonth[month]
+        default:
+            break
+        }
+        
+        // 「日」パラメータから占い結果を決定
+        switch day {
+        case 0:
+            resultView.text += resultDay[day]
+        case 1:
+            resultView.text += resultDay[day]
+        case 2:
+            resultView.text += resultDay[day]
+        case 3:
+            resultView.text += resultDay[day]
+        default:
+            break
+        }
+        
+        // 血液型から占い結果を決定
+        switch bloodIndex {
+        case 0:
+            resultView.text += resultBlood[bloodIndex]
+        case 1:
+            resultView.text += resultBlood[bloodIndex]
+        case 2:
+            resultView.text += resultBlood[bloodIndex]
+        case 3:
+            resultView.text += resultBlood[bloodIndex]
+        default:
+            break
+        }
+        
+        // 好きな値から占い結果を決定
+        switch favNum {
+        case 0:
+            resultView.text += resultNumber[favNum]
+        case 1:
+            resultView.text += resultNumber[favNum]
+        case 2:
+            resultView.text += resultNumber[favNum]
+        case 3:
+            resultView.text += resultNumber[favNum]
+        default:
+            break
+        }
     }
 }
 
