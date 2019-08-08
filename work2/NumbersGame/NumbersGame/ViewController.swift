@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         guard let playerNum: Int = Int(textField.text!) else { // playerNum: プレイヤーが入力した値（binding済み)
             
             //  エラーを表示
-            errorAlert()
+            showAlert(title: "エラーです", message: "「１〜１００」の数字を入力してください。")
             return
         }
         
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         } else { // エラー時
 
             // エラーを表示
-            errorAlert()
+            showAlert(title: "エラーです", message: "「１〜１００」の数字を入力してください。")
         }
     }
     
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         switch id {
         case 0:
             // アラートを表示
-            showAlert(message: "\(count)回目で正解しました。\n数字をリセットしました。")
+            showAlert(title: nil, message: "\(count)回目で正解しました。\n数字をリセットしました。")
             
             // resultTextViewに結果を表示
             resultTextView.text += "[正解]答えは\(trueNumber)でした。\n"
@@ -85,13 +85,13 @@ class ViewController: UIViewController {
             
         case 1:
             // アラートを表示
-            showAlert(message: "答えは\(playerNum)より大きい値です。")
+            showAlert(title: nil, message: "答えは\(playerNum)より大きい値です。")
             
             // resultTextViewに結果を表示
             resultTextView.text += "[\(count)回目]答えは\(playerNum)より大きい値です。\n"
         case 2:
             // アラートを表示
-            showAlert(message: "答えは\(playerNum)より小さい値です。")
+            showAlert(title: nil, message: "答えは\(playerNum)より小さい値です。")
             
             // resultTextViewに結果を表示
             resultTextView.text += "[\(count)回目]答えは\(playerNum)より小さい値です。\n"
@@ -101,22 +101,10 @@ class ViewController: UIViewController {
         
     }
     
-    /// 普通のアラートを表示させる処理
-    func showAlert(message: String) {
+    /// アラートを表示させる処理
+    func showAlert(title: String?, message: String) {
         // アラートの作成
-        let alert = UIAlertController(title: nil, message: message, preferredStyle:  .alert)
-        // アラートのアクション（ボタン部分の定義）
-        let close = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        // 作成したalertに閉じるボタンを追加
-        alert.addAction(close)
-        // アラートを表示する
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // エラー時のアラートを表示させる処理
-    func errorAlert() {
-        // アラートの作成
-        let alert = UIAlertController(title: "エラー", message: "「１〜１００」の数字を入力してください。", preferredStyle:  .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         // アラートのアクション（ボタン部分の定義）
         let close = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         // 作成したalertに閉じるボタンを追加
