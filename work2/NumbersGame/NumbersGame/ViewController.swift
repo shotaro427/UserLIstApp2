@@ -23,9 +23,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // resultTextViewを編集不可能にする
-        resultTextView.isEditable = false // true = 編集可、　false = 編集不可
     }
     
     /// 決定ボタンを押した時の処理
@@ -40,10 +37,8 @@ class ViewController: UIViewController {
         }
         
         // playerNumが１〜１００の間の値かどうかを判断する
-        if playerNum < 1 || playerNum > 100 { // エラー時
-            // エラーを表示
-            errorAlert()
-        } else { // 正常時
+        if playerNum >= 1 && playerNum <= 100 { // 正常時
+
             // numberLabelに入力された値を入力
             numberLabel.text = String(playerNum)
             
@@ -63,6 +58,11 @@ class ViewController: UIViewController {
             
             // 入力欄の初期化
             textField.text = ""
+            
+        } else { // エラー時
+
+            // エラーを表示
+            errorAlert()
         }
     }
     
