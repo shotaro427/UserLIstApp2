@@ -1,8 +1,8 @@
 //
 //  SecondViewController.swift
-//  UserList
+//  UsersList
 //
-//  Created by 田内　翔太郎 on 2019/08/06.
+//  Created by 田内　翔太郎 on 2019/08/08.
 //  Copyright © 2019 田内　翔太郎. All rights reserved.
 //
 
@@ -10,19 +10,15 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
-    /// 遷移元からタグ情報の値を受け取る
-    var receiveTag: Int = 0
-    
-    // 遷移元から名前の情報を受け取る
-    var receiveName: String = ""
-    
+    // 遷移元から受け取る情報を入れる変数
+    var receiveName: String = String()
+
     // 名前を表示するラベル
     @IBOutlet weak var nameLabel: UILabel!
-    
     // 趣味を表示するラベル
     @IBOutlet weak var hobbyLabel: UILabel!
     
-    // ユーザーリストの情報の辞書
+    /// ユーザーリストの情報（辞書）
     let hobbyList: [String: String] = [
         "永井 優": "音楽が好き。ビジュアル系バンドが好きでバンドを組んでギターを弾いたりした。\n最近の趣味はバイクに乗ることとキックボクシング。",
         "小野 勇輔": "スポーツをすることと釣りが好き\nサッカーと水泳をやっていた。",
@@ -40,23 +36,20 @@ class SecondViewController: UIViewController {
         "吉澤　優衣": "ゲームが大好き。\n特にドラクエをこよなく愛しており、2018年の夏休みは約200時間をドラクエに費やした。\n他にもピアノや海外旅行や読書など様々な趣味がある。"
     ]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // ボタンのタグを元に表示する情報を分ける
-        setInfo(at: receiveTag)
-        
     }
     
-    // ラベルにそれぞれ名前と趣味を追加する関数
-    func setInfo(at infoNum: Int) {
-        print("OK")
+    // ラベルに名前と趣味を表示させる関数
+    func setInfo() {
+        
         // 名前の表示
-        nameLabel.text = receiveName // 遷移元からもらった名前
-        // 趣味の表示　& 辞書外参照の防止
-        if let hobby: String = hobbyList[receiveName] { // 遷移元からもらった名前をキーに趣味を埋める
+        nameLabel.text = receiveName // 遷移元からもらった情報(名前)
+        // 趣味の表示&辞書外参照の防止
+        if let hobby = hobbyList[receiveName] { // 遷移元からもらった名前をキーに趣味欄を埋める
+            // 趣味の表示
             hobbyLabel.text = hobby
-            print(hobby)
         }
     }
 

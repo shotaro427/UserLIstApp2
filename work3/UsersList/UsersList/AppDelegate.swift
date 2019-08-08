@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  UserList
+//  UsersList
 //
-//  Created by 田内　翔太郎 on 2019/08/06.
+//  Created by 田内　翔太郎 on 2019/08/08.
 //  Copyright © 2019 田内　翔太郎. All rights reserved.
 //
 
