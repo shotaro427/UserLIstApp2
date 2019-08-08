@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // 遷移元から受け取る値
+    // 遷移元から受け取る名前
+    var receiveName: String = String()
+    // 遷移元から受け取る趣味
+    var receiveHobby: String = String()
+    
     // 名前を表示させるラベル
     @IBOutlet weak var nameLabel: UILabel!
     // 趣味を表示させるラベル
@@ -17,7 +23,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // ラベルに名前を表示させる
+        nameLabel.text = receiveName
+        // ラベルに趣味を表示させる
+        hobbyLabel.text = receiveHobby
     }
 
 
