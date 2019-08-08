@@ -120,7 +120,7 @@ class ViewController: UIViewController {
         // ラベルのリセット
         numberLabel.text = "??"
         // カウントのリセット
-        count = 1
+        count = 0
     }
     
 }
