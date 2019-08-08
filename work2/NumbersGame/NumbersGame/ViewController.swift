@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             count += 1
             
             // 入力欄の初期化
-            textField.text = ""
+            textField.text = String()
             
         } else { // エラー時
 
